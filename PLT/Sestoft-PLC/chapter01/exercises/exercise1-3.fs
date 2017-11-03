@@ -31,26 +31,30 @@ let precedence expr =
         | Sub(_, _) -> 6
         | Mul(_, _) -> 5
 
+let sign expr =
+    match expr with
+        | ConsInt(_) -> ""
+        | Variable(_) -> ""
+        | Add(_, _) -> "+"
+        | Sub(_, _) -> "-"
+        | Mul(_, _) -> "*"
+
 let fmt2 expr =
     let rec fmt_aux expr =
         match expr with
             | ConsInt i -> string i
             | Variable v -> v
-            | Add(e1, e2) ->
-                (let pe1, pe2 = precedence e1, precedence e2 in
-                    let f1, f2 = fmt_aux e1, fmt_aux e2 in
-                        if pe1 <= 6 then f1 + " + " + f2
-                        else "(" + f1 + ")" + " + " + f2)
-            | Sub(e1, e2) ->
-                (let pe1, pe2 = precedence e1, precedence e2 in
-                    let f1, f2 = fmt_aux e1, fmt_aux e2 in
-                        if pe1 <= 6 then f1 + " - " + f2
-                        else "(" + f1 + ")" + " - " + f2)
-            | Mul(e1, e2) ->
-                (let pe1, pe2 = precedence e1, precedence e2 in
-                    let f1, f2 = fmt_aux e1, fmt_aux e2 in
-                        if pe1 <= 5 then f1 + " * " + f2
-                        else "(" + f1 + ")" + " * " + f2)
+            | Add(e1, e2) -> fmt_binop (precedence expr) e1 e2
+            | Sub(e1, e2) -> fmt_binop (precedence expr) e1 e2
+            | Mul(e1, e2) -> fmt_binop (precedence expr) e1 e2
+
+    and fmt_binop p e1 e2 =
+        (let pe1, pe2 = precedence e1, precedence e2 in
+                    let f, f1, f2 = sign expr, fmt_aux e1, fmt_aux e2 in
+                        match (pe1, pe2) with
+                            | (pl, pr) when pl > p && pr < p -> "(" + f1 + ")" + f + f2
+                            | (pl, pr) when pl < p && pr = p -> f1 + f + "(" + f2 + ")"
+                            | _ -> f1 + f + f2)
 
     in fmt_aux expr
 
