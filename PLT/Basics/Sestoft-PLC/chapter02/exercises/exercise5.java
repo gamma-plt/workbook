@@ -1,9 +1,9 @@
-// javac exercise6.java && java exercise6 < expression.svm && rm exercise6.class
+// javac exercise5.java && java exercise5 < expression.svm && rm exercise5.class
 
 import java.io.*;
 import java.util.*;
 
-class exercise6 {
+class exercise5 {
 
     final static int CST = 0;
     final static int VAR = 1;
