@@ -1,4 +1,4 @@
-# 1 "Lexer.fsl"
+# 3 "Lexer.fsl"
  
 
 module Lexer
@@ -147,122 +147,122 @@ and String chars (lexbuf : Microsoft.FSharp.Text.Lexing.LexBuffer<_>) = _fslex_S
 and _fslex_Token  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 46 "Lexer.fsl"
+# 48 "Lexer.fsl"
                                          Token lexbuf 
 # 152 "Lexer.fs"
           )
   | 1 -> ( 
-# 47 "Lexer.fsl"
+# 49 "Lexer.fsl"
                                          lexbuf.EndPos <- lexbuf.EndPos.NextLine; Token lexbuf 
 # 157 "Lexer.fs"
           )
   | 2 -> ( 
-# 48 "Lexer.fsl"
+# 50 "Lexer.fsl"
                                          CSTINT (System.Int32.Parse (lexemeAsString lexbuf)) 
 # 162 "Lexer.fs"
           )
   | 3 -> ( 
-# 50 "Lexer.fsl"
+# 52 "Lexer.fsl"
                                          keyword ((lexemeAsString lexbuf).ToLower()) 
 # 167 "Lexer.fs"
           )
   | 4 -> ( 
-# 52 "Lexer.fsl"
+# 54 "Lexer.fsl"
                                          NAME (lexemeAsString lexbuf) 
 # 172 "Lexer.fs"
           )
   | 5 -> ( 
-# 53 "Lexer.fsl"
+# 55 "Lexer.fsl"
                                          PLUS 
 # 177 "Lexer.fs"
           )
   | 6 -> ( 
-# 54 "Lexer.fsl"
+# 56 "Lexer.fsl"
                                          MINUS 
 # 182 "Lexer.fs"
           )
   | 7 -> ( 
-# 55 "Lexer.fsl"
+# 57 "Lexer.fsl"
                                          TIMES 
 # 187 "Lexer.fs"
           )
   | 8 -> ( 
-# 56 "Lexer.fsl"
+# 58 "Lexer.fsl"
                                          DIV 
 # 192 "Lexer.fs"
           )
   | 9 -> ( 
-# 57 "Lexer.fsl"
+# 59 "Lexer.fsl"
                                          MOD 
 # 197 "Lexer.fs"
           )
   | 10 -> ( 
-# 58 "Lexer.fsl"
+# 60 "Lexer.fsl"
                                          EQ 
 # 202 "Lexer.fs"
           )
   | 11 -> ( 
-# 59 "Lexer.fsl"
+# 61 "Lexer.fsl"
                                          NE 
 # 207 "Lexer.fs"
           )
   | 12 -> ( 
-# 60 "Lexer.fsl"
+# 62 "Lexer.fsl"
                                          GT 
 # 212 "Lexer.fs"
           )
   | 13 -> ( 
-# 61 "Lexer.fsl"
+# 63 "Lexer.fsl"
                                          LT 
 # 217 "Lexer.fs"
           )
   | 14 -> ( 
-# 62 "Lexer.fsl"
+# 64 "Lexer.fsl"
                                          GE 
 # 222 "Lexer.fs"
           )
   | 15 -> ( 
-# 63 "Lexer.fsl"
+# 65 "Lexer.fsl"
                                          LE 
 # 227 "Lexer.fs"
           )
   | 16 -> ( 
-# 64 "Lexer.fsl"
+# 66 "Lexer.fsl"
                                          LPAR 
 # 232 "Lexer.fs"
           )
   | 17 -> ( 
-# 65 "Lexer.fsl"
+# 67 "Lexer.fsl"
                                          RPAR 
 # 237 "Lexer.fs"
           )
   | 18 -> ( 
-# 66 "Lexer.fsl"
+# 68 "Lexer.fsl"
                                          COMMA 
 # 242 "Lexer.fs"
           )
   | 19 -> ( 
-# 67 "Lexer.fsl"
+# 69 "Lexer.fsl"
                                          DOT 
 # 247 "Lexer.fs"
           )
   | 20 -> ( 
-# 68 "Lexer.fsl"
+# 70 "Lexer.fsl"
                                          SkipToEndLine lexbuf; Token lexbuf 
 # 252 "Lexer.fs"
           )
   | 21 -> ( 
-# 69 "Lexer.fsl"
+# 71 "Lexer.fsl"
                                          CSTSTRING (String [] lexbuf) 
 # 257 "Lexer.fs"
           )
   | 22 -> ( 
-# 70 "Lexer.fsl"
+# 72 "Lexer.fsl"
                                          EOF 
 # 262 "Lexer.fs"
           )
   | 23 -> ( 
-# 71 "Lexer.fsl"
+# 73 "Lexer.fsl"
                                          failwith "Lexer error: illegal symbol" 
 # 267 "Lexer.fs"
           )
@@ -271,17 +271,17 @@ and _fslex_Token  _fslex_state lexbuf =
 and _fslex_SkipToEndLine  _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 74 "Lexer.fsl"
+# 76 "Lexer.fsl"
                                          lexbuf.EndPos <- lexbuf.EndPos.NextLine 
 # 276 "Lexer.fs"
           )
   | 1 -> ( 
-# 75 "Lexer.fsl"
+# 77 "Lexer.fsl"
                                          () 
 # 281 "Lexer.fs"
           )
   | 2 -> ( 
-# 76 "Lexer.fsl"
+# 78 "Lexer.fsl"
                                          SkipToEndLine lexbuf 
 # 286 "Lexer.fs"
           )
@@ -290,42 +290,42 @@ and _fslex_SkipToEndLine  _fslex_state lexbuf =
 and _fslex_String chars _fslex_state lexbuf =
   match _fslex_tables.Interpret(_fslex_state,lexbuf) with
   | 0 -> ( 
-# 80 "Lexer.fsl"
+# 82 "Lexer.fsl"
                                          Microsoft.FSharp.Core.String.concat "" (List.map string (List.rev chars)) 
 # 295 "Lexer.fs"
           )
   | 1 -> ( 
-# 82 "Lexer.fsl"
+# 84 "Lexer.fsl"
                                          String (cEscape (lexemeAsString lexbuf) :: chars) lexbuf 
 # 300 "Lexer.fs"
           )
   | 2 -> ( 
-# 84 "Lexer.fsl"
+# 86 "Lexer.fsl"
                                          String ('\'' :: chars) lexbuf 
 # 305 "Lexer.fs"
           )
   | 3 -> ( 
-# 86 "Lexer.fsl"
+# 88 "Lexer.fsl"
                                          failwith "Lexer error: illegal escape sequence" 
 # 310 "Lexer.fs"
           )
   | 4 -> ( 
-# 88 "Lexer.fsl"
+# 90 "Lexer.fsl"
                                          failwith "Lexer error: unterminated string" 
 # 315 "Lexer.fs"
           )
   | 5 -> ( 
-# 90 "Lexer.fsl"
+# 92 "Lexer.fsl"
                                          failwith "Lexer error: newline in string" 
 # 320 "Lexer.fs"
           )
   | 6 -> ( 
-# 92 "Lexer.fsl"
+# 94 "Lexer.fsl"
                                          failwith "Lexer error: invalid character in string" 
 # 325 "Lexer.fs"
           )
   | 7 -> ( 
-# 94 "Lexer.fsl"
+# 96 "Lexer.fsl"
                                          String (char (lexbuf.LexemeChar 0) :: chars) lexbuf 
 # 330 "Lexer.fs"
           )
