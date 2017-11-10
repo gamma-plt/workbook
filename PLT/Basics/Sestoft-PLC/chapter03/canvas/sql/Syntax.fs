@@ -13,7 +13,7 @@ and column =
     | TableColumn of string * string      (* A qualified column: t.c        *)
 
 and expr = 
-    | Star
+    | Star                                (* Select all                     *)
     | Cst of constant                     (* Constant                       *)
     | ColumnExpr of column                (* Column                         *)
     | Prim of string * expr list          (* Built-in function              *)
