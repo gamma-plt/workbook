@@ -21,7 +21,6 @@ let fromString (str : string) : stmt =
 
 (* Exercise it *)
 
-let e1 = fromString "SELECT name, salary * (1 - taxrate) FROM Employee";;
+let e1 = fromString "SELECT name, salary * (1 - taxrate) FROM Employee"
 
-let e2 = fromString "SELECT department, AVG(salary * (1 - taxrate)) FROM Employee";;
-
+let e2 = fromString "SELECT department, AVG(salary * (1 - taxrate)) FROM Employee"
