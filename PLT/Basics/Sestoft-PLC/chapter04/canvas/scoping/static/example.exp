@@ -1,0 +1,7 @@
+let y = 11 in
+    let abs x = if x < 0 then (-x) else x in
+        let x = y + 24 in
+            x + y + abs (-5)
+        end
+    end
+end
