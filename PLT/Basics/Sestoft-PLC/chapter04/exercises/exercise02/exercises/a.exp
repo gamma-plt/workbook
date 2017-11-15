@@ -1,0 +1,5 @@
+let n = 1000 in
+	let sum n = if n = 1 then 1 else n + sum (n - 1) in
+		sum n 
+	end
+end

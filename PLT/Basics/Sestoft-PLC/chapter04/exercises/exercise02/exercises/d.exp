@@ -1,0 +1,8 @@
+let base = 10 in
+	(* foo computes base ^ 8 *)
+	let foo b = b * b * b * b * b * b * b * b in
+		let sum base = if base = 1 then 1 else (foo base) + sum (base - 1) in
+			sum base
+		end
+	end
+end
