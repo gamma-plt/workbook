@@ -1,0 +1,9 @@
+let base = 3 in
+	let exp = 11 in
+		let foo cexp = if cexp = 0 then 1 else (base * foo (cexp - 1)) in
+			let sum exp = if exp = 0 then 1 else (foo exp) + sum (exp - 1) in
+				sum exp
+			end
+		end
+	end
+end

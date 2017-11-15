@@ -1,0 +1,7 @@
+let base = 3 in
+	let exp = 8 in
+		let foo cexp = if cexp = 0 then 1 else (base * foo (cexp - 1)) in
+			foo exp
+		end
+	end
+end
