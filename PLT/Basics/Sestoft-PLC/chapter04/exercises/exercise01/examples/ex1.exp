@@ -1,0 +1,5 @@
+let n = 3 in
+	let even n = n % 2 = 0 in
+		even n 
+	end
+end
